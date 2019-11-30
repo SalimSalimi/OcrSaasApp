@@ -1,0 +1,19 @@
+Version
+OpenCV 4.1.1
+
+
+
+Instructions de déploiement:
+
+Pour déployer le projet, il faut au préalable avoir installé OpenCV 4.1.1, si tel est n'est pas le cas:
+Exécuter le script "install-opencv.sh" disponible dane ce répertoire.
+----Le script est disponible ici : https://github.com/milq/milq/blob/master/scripts/bash/install-opencv.sh, mais en modifiant les options de build CMake pour générer le .so de la librarie :-DCMAKE_BUILD_TYPE=Release et -DOPENCV_GENERATE_PKGCONFIG=YES
+
+Pour tester si OpenCV est installé, il faudra exécuter la commande pkg-config --cflags opencv4 et doit retourner des chemins.
+
+Après avoir installé OpenCV, exécutez le script deploy_app.sh
+Dans ce script, nous installons les outils nécessaires tel que: NodeJs, Tesseract, cloner le repo du projet, initialiser le projet et le compiler.
+En cas d'erreur de build, veuillez consulter le fichier configuration.txt
+
+
+Merci.

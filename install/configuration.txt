@@ -1,0 +1,38 @@
+En cas de problème de compilation après la commande "node-gyp rebuild"
+Il est nécessaire de modifier le chemin des libraries d'OpenCV et Tesseract.
+
+1- OpenCV
+
+------------Répertoires d'include--------------
+1-OpenCV
+Exécuter la commande ci-dessous pour trouver le chemin
+pkg-config --cflags opencv4
+(Par exemple, dans mon cas: -I/usr/local/include/opencv4/opencv -I/usr/local/include/opencv4)
+Il suffit de copier le chemin juste avant opencv4 et le mettre dans "include_dirs"
+
+2-Tesseract
+Refaire la même opération pour "tesseract"
+pkg-config --cflags tesseract
+le résultat retourne 2 chemins "I/usr/include/tesseract -I/usr/include/leptonica"
+Il suffit alors de copier les 2 chemins et les séparer par des virgules(en enlevant le -I)
+
+-----------Répertoire des libs------------------
+
+1-OpenCV
+Exécuter la commande ci-dessous pour trouver le chemin:
+pkg-config --libs opencv4
+(Pour mon cas, le résultat est le suivant: 
+ -L/usr/local/lib -lopencv_dnn -lopencv_gapi -lopencv_highgui -lopencv_ml -lopencv_objdetect -lopencv_photo -lopencv_stitching -lopencv_video -lopencv_calib3d -lopencv_features2d -lopencv_flann -lopencv_videoio -lopencv_imgcodecs -lopencv_imgproc -lopencv_core
+
+Alors, le chemin est "/usr/local/lib", ce chemin est à placé dans la section "library_dirs" (voir le binding.gyp)
+
+La suite de la commande représente les libraries (Il n'y a pas lieu de modifier normalement étant donné elles sont supposées être les mêmes).
+
+2-Tesseract
+En exécutant la commande ci-dessous:
+pkg-config --libs tesseract
+Vous aurez ce résultat : "ltesseract"
+Vous n'aurez qu'à l'ajouter dans "libraries" en le préfixant d'un - : -ltesseract
+
+Rééxecuter la commande node-gyp rebuild pour compiler le code.
+ 
