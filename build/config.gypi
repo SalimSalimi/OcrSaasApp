@@ -69,7 +69,7 @@
     "v8_typed_array_max_size_in_heap": 0,
     "v8_use_snapshot": "true",
     "want_separate_host_toolset": 0,
-    "nodedir": "/home/heffar/snap/code/common/.cache/node-gyp/10.17.0",
+    "nodedir": "/home/heffar/.cache/node-gyp/10.17.0",
     "standalone_static_library": 1
   }
 }

@@ -35,15 +35,16 @@ CFLAGS_CC_Debug := \
 	-std=gnu++1y
 
 INCS_Debug := \
-	-I/home/heffar/snap/code/common/.cache/node-gyp/10.17.0/include/node \
-	-I/home/heffar/snap/code/common/.cache/node-gyp/10.17.0/src \
-	-I/home/heffar/snap/code/common/.cache/node-gyp/10.17.0/deps/openssl/config \
-	-I/home/heffar/snap/code/common/.cache/node-gyp/10.17.0/deps/openssl/openssl/include \
-	-I/home/heffar/snap/code/common/.cache/node-gyp/10.17.0/deps/uv/include \
-	-I/home/heffar/snap/code/common/.cache/node-gyp/10.17.0/deps/zlib \
-	-I/home/heffar/snap/code/common/.cache/node-gyp/10.17.0/deps/v8/include \
+	-I/home/heffar/.cache/node-gyp/10.17.0/include/node \
+	-I/home/heffar/.cache/node-gyp/10.17.0/src \
+	-I/home/heffar/.cache/node-gyp/10.17.0/deps/openssl/config \
+	-I/home/heffar/.cache/node-gyp/10.17.0/deps/openssl/openssl/include \
+	-I/home/heffar/.cache/node-gyp/10.17.0/deps/uv/include \
+	-I/home/heffar/.cache/node-gyp/10.17.0/deps/zlib \
+	-I/home/heffar/.cache/node-gyp/10.17.0/deps/v8/include \
 	-I/usr/local/include/opencv4 \
-	-I/usr/include/tesseract
+	-I/usr/include/tesseract \
+	-I/usr/include/leptonica
 
 DEFS_Release := \
 	'-DNODE_GYP_MODULE_NAME=addon' \
@@ -75,15 +76,16 @@ CFLAGS_CC_Release := \
 	-std=gnu++1y
 
 INCS_Release := \
-	-I/home/heffar/snap/code/common/.cache/node-gyp/10.17.0/include/node \
-	-I/home/heffar/snap/code/common/.cache/node-gyp/10.17.0/src \
-	-I/home/heffar/snap/code/common/.cache/node-gyp/10.17.0/deps/openssl/config \
-	-I/home/heffar/snap/code/common/.cache/node-gyp/10.17.0/deps/openssl/openssl/include \
-	-I/home/heffar/snap/code/common/.cache/node-gyp/10.17.0/deps/uv/include \
-	-I/home/heffar/snap/code/common/.cache/node-gyp/10.17.0/deps/zlib \
-	-I/home/heffar/snap/code/common/.cache/node-gyp/10.17.0/deps/v8/include \
+	-I/home/heffar/.cache/node-gyp/10.17.0/include/node \
+	-I/home/heffar/.cache/node-gyp/10.17.0/src \
+	-I/home/heffar/.cache/node-gyp/10.17.0/deps/openssl/config \
+	-I/home/heffar/.cache/node-gyp/10.17.0/deps/openssl/openssl/include \
+	-I/home/heffar/.cache/node-gyp/10.17.0/deps/uv/include \
+	-I/home/heffar/.cache/node-gyp/10.17.0/deps/zlib \
+	-I/home/heffar/.cache/node-gyp/10.17.0/deps/v8/include \
 	-I/usr/local/include/opencv4 \
-	-I/usr/include/tesseract
+	-I/usr/include/tesseract \
+	-I/usr/include/leptonica
 
 OBJS := \
 	$(obj).target/$(TARGET)/addon.o
@@ -116,19 +118,16 @@ LDFLAGS_Debug := \
 	-pthread \
 	-rdynamic \
 	-m64 \
-	-L/usr/local/lib/ \
-	-L/usr/lib/x86_64-linux-gnu/
+	-L/usr/local/lib/
 
 LDFLAGS_Release := \
 	-pthread \
 	-rdynamic \
 	-m64 \
-	-L/usr/local/lib/ \
-	-L/usr/lib/x86_64-linux-gnu/
+	-L/usr/local/lib/
 
 LIBS := \
-	-lopencv_dnn -lopencv_gapi -lopencv_highgui -lopencv_ml -lopencv_objdetect -lopencv_photo -lopencv_stitching -lopencv_video -lopencv_calib3d -lopencv_features2d -lopencv_flann -lopencv_videoio -lopencv_imgcodecs -lopencv_imgproc -lopencv_core \
-	/usr/lib/x86_64-linux-gnu/libtesseract.so
+	-lopencv_dnn -lopencv_gapi -lopencv_highgui -lopencv_ml -lopencv_objdetect -lopencv_photo -lopencv_stitching -lopencv_video -lopencv_calib3d -lopencv_features2d -lopencv_flann -lopencv_videoio -lopencv_imgcodecs -lopencv_imgproc -lopencv_core -ltesseract
 
 $(obj).target/addon.node: GYP_LDFLAGS := $(LDFLAGS_$(BUILDTYPE))
 $(obj).target/addon.node: LIBS := $(LIBS)

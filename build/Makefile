@@ -308,8 +308,8 @@ ifeq ($(strip $(foreach prefix,$(NO_LOAD),\
 endif
 
 quiet_cmd_regen_makefile = ACTION Regenerating $@
-cmd_regen_makefile = cd $(srcdir); /usr/lib/node_modules/node-gyp/gyp/gyp_main.py -fmake --ignore-environment "-Dlibrary=shared_library" "-Dvisibility=default" "-Dnode_root_dir=/home/heffar/snap/code/common/.cache/node-gyp/10.17.0" "-Dnode_gyp_dir=/usr/lib/node_modules/node-gyp" "-Dnode_lib_file=/home/heffar/snap/code/common/.cache/node-gyp/10.17.0/<(target_arch)/node.lib" "-Dmodule_root_dir=/home/heffar/Opencv_SaaS" "-Dnode_engine=v8" "--depth=." "-Goutput_dir=." "--generator-output=build" -I/home/heffar/Opencv_SaaS/build/config.gypi -I/usr/lib/node_modules/node-gyp/addon.gypi -I/home/heffar/snap/code/common/.cache/node-gyp/10.17.0/include/node/common.gypi "--toplevel-dir=." binding.gyp
-Makefile: $(srcdir)/build/config.gypi $(srcdir)/binding.gyp $(srcdir)/../../../usr/lib/node_modules/node-gyp/addon.gypi $(srcdir)/../snap/code/common/.cache/node-gyp/10.17.0/include/node/common.gypi
+cmd_regen_makefile = cd $(srcdir); /usr/lib/node_modules/node-gyp/gyp/gyp_main.py -fmake --ignore-environment "-Dlibrary=shared_library" "-Dvisibility=default" "-Dnode_root_dir=/home/heffar/.cache/node-gyp/10.17.0" "-Dnode_gyp_dir=/usr/lib/node_modules/node-gyp" "-Dnode_lib_file=/home/heffar/.cache/node-gyp/10.17.0/<(target_arch)/node.lib" "-Dmodule_root_dir=/home/heffar/GitRepo/Opencv_SaaS" "-Dnode_engine=v8" "--depth=." "-Goutput_dir=." "--generator-output=build" -I/home/heffar/GitRepo/Opencv_SaaS/build/config.gypi -I/usr/lib/node_modules/node-gyp/addon.gypi -I/home/heffar/.cache/node-gyp/10.17.0/include/node/common.gypi "--toplevel-dir=." binding.gyp
+Makefile: $(srcdir)/../../.cache/node-gyp/10.17.0/include/node/common.gypi $(srcdir)/binding.gyp $(srcdir)/build/config.gypi $(srcdir)/../../../../usr/lib/node_modules/node-gyp/addon.gypi
 	$(call do_cmd,regen_makefile)
 
 # "all" is a concatenation of the "all" targets from all the included
