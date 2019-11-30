@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<header>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--BootStrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <title>Text Recognition With OpenCV & NodeJS</title>
+    <meta charset="utf-8">
+
+
+    <script type="text/javascript" src="/scripts/script.js"></script>
+</header>
+
+<body>
+
+    <div class="jumbotron text-center">
+        <h1>Text Recognition</h1>
+        <p>Insérer une image en cliquant sur "Parcourir", ensuite cliquer sur le bouton pour retourner extraire le texte de l'image.</p>
+    </div>
+    <div class="container-fluid">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="card" style="width: 25rem;">
+                    <div class="row no-gutters">
+                    <img id="blah" class="img-thumbnail card-img-top rounded" src="<%-imageUrl%>" class="card-img" alt="image" style="height: 18rem; width: 25rem;"/>
+                    <div class="card-body"> 
+                      <p class="card-text">
+                          <% if (typeof text!='undefined') {%>
+                            <%-text%>
+                          <% }; %>
+                          
+                      </p>
+                        <form action="/upload" method="post" enctype="multipart/form-data">
+                            <div class="input-group">
+                                <div class="custom-file">
+                                  <label class="custom-file-label" for="inputGroupFile04">Choisir un fichier</label>
+                                  <input type="file" id="inputFile" class="custom-file-input" id="inputGroupFile04" accept="image/*" name="photo">
+                                </div>
+                                <div class="input-group-append">
+                                  <input class="btn btn-outline-primary" type="submit" value="Extraire le texte"></button>
+                                </div>
+                              </div>
+
+                    </div>
+                  </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
